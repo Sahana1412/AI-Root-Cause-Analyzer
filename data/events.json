@@ -1,0 +1,105 @@
+[
+  {
+    "timestamp": "2024-01-15T10:00:00Z",
+    "type": "deployment",
+    "service": "order-service",
+    "version": "v2.3.1",
+    "previous_version": "v2.3.0",
+    "status": "success",
+    "deployed_by": "ci-cd-pipeline",
+    "changes": ["Added bulk order processing", "Updated DB query for inventory check"],
+    "rollback_available": true
+  },
+  {
+    "timestamp": "2024-01-15T11:30:00Z",
+    "type": "config_change",
+    "service": "db-primary",
+    "status": "success",
+    "deployed_by": "ops-team",
+    "changes": ["Increased max_connections from 300 to 500", "Updated query timeout to 3000ms"],
+    "rollback_available": true
+  },
+  {
+    "timestamp": "2024-01-15T13:00:00Z",
+    "type": "deployment",
+    "service": "api-gateway",
+    "version": "v1.8.0",
+    "previous_version": "v1.7.9",
+    "status": "success",
+    "deployed_by": "ci-cd-pipeline",
+    "changes": ["Rate limiting improvements", "New /health endpoint"],
+    "rollback_available": true
+  },
+  {
+    "timestamp": "2024-01-15T13:45:00Z",
+    "type": "alert",
+    "service": "db-primary",
+    "alert_name": "High Connection Count",
+    "severity": "warning",
+    "threshold": "70%",
+    "actual_value": "72%",
+    "status": "fired",
+    "auto_resolved": false
+  },
+  {
+    "timestamp": "2024-01-15T14:00:30Z",
+    "type": "deployment",
+    "service": "order-service",
+    "version": "v2.3.2",
+    "previous_version": "v2.3.1",
+    "status": "success",
+    "deployed_by": "ci-cd-pipeline",
+    "changes": ["Hotfix: removed N+1 query in bulk order processing", "Added connection pooling"],
+    "rollback_available": true,
+    "note": "This deployment may have introduced a connection leak"
+  },
+  {
+    "timestamp": "2024-01-15T14:02:50Z",
+    "type": "alert",
+    "service": "db-primary",
+    "alert_name": "Max Connections Reached",
+    "severity": "critical",
+    "threshold": "500",
+    "actual_value": "500",
+    "status": "fired",
+    "auto_resolved": false
+  },
+  {
+    "timestamp": "2024-01-15T14:03:15Z",
+    "type": "alert",
+    "service": "api-gateway",
+    "alert_name": "High Error Rate",
+    "severity": "critical",
+    "threshold": "5%",
+    "actual_value": "94%",
+    "status": "fired",
+    "auto_resolved": false
+  },
+  {
+    "timestamp": "2024-01-15T14:04:00Z",
+    "type": "incident",
+    "incident_id": "INC-2024-0115",
+    "severity": "P1",
+    "title": "Checkout service completely down",
+    "affected_services": ["api-gateway", "order-service", "payment-service"],
+    "status": "active"
+  },
+  {
+    "timestamp": "2024-01-15T14:05:00Z",
+    "type": "action",
+    "service": "db-primary",
+    "action": "restart",
+    "performed_by": "ops-team",
+    "status": "success",
+    "outcome": "Database connections cleared, service recovered"
+  },
+  {
+    "timestamp": "2024-01-15T14:07:30Z",
+    "type": "incident",
+    "incident_id": "INC-2024-0115",
+    "severity": "P1",
+    "title": "Checkout service completely down",
+    "status": "resolved",
+    "resolution": "Database restarted, connection pool normalized"
+  }
+]
