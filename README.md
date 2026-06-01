@@ -6,7 +6,7 @@ An end-to-end AI system that ingests simulated logs, metrics, and deployment eve
 
 ---
 
-## 🏗️ Architecture
+## Architecture
 
 ```
 ai-incident-analyzer/
@@ -36,7 +36,7 @@ ai-incident-analyzer/
 
 ---
 
-## 🚀 Quick Start
+##  Quick Start
 
 ### 1. Install dependencies
 
@@ -85,15 +85,15 @@ To use a real LLM:
 
 ---
 
-## 🔄 Demo Walkthrough
+##  Demo Walkthrough
 
 1. **Dashboard** — See incident overview (24 logs, 42 metric rows, 10 events)
 2. **Metrics & Anomalies** — Interactive charts showing the incident spike at 14:01-14:03
 3. **Logs** — Filterable log explorer with level/service filters
 4. **Timeline** — Chronological incident timeline with phase markers
-5. **🧠 AI Analysis** — Root cause, confidence score, evidence, multiple hypotheses
-6. **🛠️ Action & Recovery** — Action plan + "Approve Action" button + recovery charts
-7. **💬 Chat** — Ask follow-up questions ("Why did this happen?", "What's the fix?")
+5. ** AI Analysis** — Root cause, confidence score, evidence, multiple hypotheses
+6. ** Action & Recovery** — Action plan + "Approve Action" button + recovery charts
+7. ** Chat** — Ask follow-up questions ("Why did this happen?", "What's the fix?")
 
 ---
 
@@ -125,7 +125,7 @@ The demo dataset simulates a **real-world production incident**:
 - **Mock LLM** — deterministic responses for offline demos without API keys
 - **Modular design** — each module can be tested/replaced independently
 - **FastAPI** — async, auto-docs, easy to extend
-- **Streamlit** — rapid UI prototyping, great for hackathons
+- **Streamlit** — rapid UI prototyping
 
 ---
 
@@ -143,17 +143,3 @@ curl -X POST http://localhost:8000/analyze \
   -d '{"llm_provider": "mock"}'
 ```
 
----
-
-## 🏆 Hackathon Checklist
-
-- ✅ Anomaly detection (z-score + thresholds)
-- ✅ Log parsing (pattern matching, cascade detection)
-- ✅ Timeline builder (unified event stream)
-- ✅ AI agent (structured LLM reasoning)
-- ✅ Multiple hypotheses with confidence scores
-- ✅ Action plan with risk assessment
-- ✅ Recovery simulation with charts
-- ✅ Chat interface for Q&A
-- ✅ Works without API keys (mock mode)
-- ✅ Full API docs at /docs
