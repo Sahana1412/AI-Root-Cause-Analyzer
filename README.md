@@ -68,7 +68,7 @@ Frontend runs at: http://localhost:8501
 
 ---
 
-## 🤖 LLM Configuration
+##  LLM Configuration
 
 The app works in **3 modes**:
 
